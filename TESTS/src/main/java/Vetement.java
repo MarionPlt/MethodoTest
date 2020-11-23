@@ -37,10 +37,12 @@ class Vetement {
     }
 
 
-    public Vetement(String type, String couleur, float prix, int taille) {
+    public Vetement(String type) {
+        this.type = type;
+    }
+
+    public Vetement(String type, String couleur) {
         this.type = type;
         this.couleur = couleur;
-        this.prix = prix;
-        this.taille = taille;
     }
 }
