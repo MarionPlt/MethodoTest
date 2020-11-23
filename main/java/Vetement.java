@@ -1,50 +1,31 @@
-class Vetement {
-    private String type;
-    private String couleur;
-    private float prix;
-    private int taille;
+public  class Vetement {
+    public String type;
+    public String couleur;
+    public float prix;
+    public int taille;
+    static int stock ;
 
-    public String getType() {
-        return type;
+
+    public Vetement() {
+
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public static void message() {
+        System.out.println("Stock épuisé en cours de réapprovisionnement");
     }
 
-    public String getCouleur() {
-        return couleur;
+    public void catalogueIndiv() {
+
+    }
+    public void catalogueTotal(){
+        Chemise.catalogueIndivChemise();
+        Pantalon.catalogueIndivPantalon();
+        Casquette.catalogueIndivCasquette();
     }
 
-    public void setCouleur(String couleur) {
-        this.couleur = couleur;
-    }
-
-    public float getPrix() {
-        return prix;
-    }
-
-    public void setPrix(float prix) {
-        this.prix = prix;
-    }
-
-    public int getTaille() {
-        return taille;
-    }
-
-    public void setTaille(int taille) {
-        this.taille = taille;
-    }
-
-    public Vetement(String type) {
-        this.type = type;
-    }
-
-
-    public Vetement(String type, String couleur, float prix, int taille) {
-        this.type = type;
-        this.couleur = couleur;
-        this.prix = prix;
-        this.taille = taille;
+    public static void main (String[] args){
+        stock = Chemise.stock + Pantalon.stock + Casquette.stock;
     }
 }
+
+

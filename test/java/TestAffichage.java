@@ -1,39 +1,37 @@
 import junit.framework.TestCase;
 import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
 
 import java.util.ArrayList;
+
 
 public class TestAffichage extends TestCase {
     /*
      * Tests unitaires
      * */
+    private Vetement test;
+    private Chemise test2;
+
+    @BeforeEach
+    public void init() {
+
+        this.test = new Vetement();
+        this.test2 = new Chemise();
+    }
+
     @Test
     public void testType() {
-        Vetement chemise = new Vetement("chemise");
-        assertEquals("chemise", chemise.getType());
+        assertTrue(test.type instanceof String);
     }
 
     @Test
-    public void testCouleur() {
-        Vetement chemise = new Vetement("chemise", "bleue", 15.6f, 3);
-        assertEquals("bleu", chemise.getCouleur());
+    public void testStock() {
+        assertNotNull(test.stock);
     }
 
-    @Test
-    public void testprix() {
-        Vetement chemise = new Vetement("chemise", "bleue", 15.6f, 3);
-        assertEquals(15.5f, chemise.getPrix());
-    }
-
-    @Test
-    public void testTaille() {
-        Vetement chemise = new Vetement("chemise", "bleue", 15.6f, 3);
-        assertEquals(3, chemise.getTaille());
-    }
     @Test
     public void testAjouter() {
-        Vetement chemise = new Vetement("chemise");
-        assertTrue(Commande.ajouter(chemise) instanceof ArrayList);
+        assertTrue(Commande.ajouter(test) instanceof ArrayList);
     }
 
 
@@ -42,10 +40,15 @@ public class TestAffichage extends TestCase {
      * */
     @Test
     public void testFoncAjouter() {
-        Vetement chemise = new Vetement("chemise");
+        Chemise chemise = new Chemise();
         ArrayList commandeTest = new ArrayList<Vetement>();
         ArrayList commandeTest2 = Commande.ajouter(chemise);
         assertTrue((commandeTest.size() < commandeTest2.size()));
 
     }
+    /*
+     * Tests intégration
+     */
+
+
 }
